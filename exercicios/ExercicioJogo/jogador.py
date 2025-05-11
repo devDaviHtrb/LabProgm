@@ -22,3 +22,5 @@ class Jogador:
             return True
     def getId(self):
         return self.__idJogador
+    def getBiblioteca(self):
+        return self.__bibliotecaJogos

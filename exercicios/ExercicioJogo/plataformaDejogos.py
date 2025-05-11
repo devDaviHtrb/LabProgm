@@ -19,7 +19,6 @@ class Plataforma:
     def buscarId(self, id):
         for jogador in self.__jogadoresCadastrados:
             if jogador.getId() == id:
-                jogador.exibirPerfil()
                 return jogador
         return None
     
@@ -28,17 +27,18 @@ class Plataforma:
             jogo.exibirDetalhes()
 
     def AdicionarJogoBiblioteca(self, jogo, jogador):
-        return jogador.__bibliotecaJogos.append(jogo)
+        return jogador.getBiblioteca().append(jogo)
 
     def ComprarJogo(self, jogo, jogador):
-        if jogador.DebitaSaldo(jogo.GetPreco()) == True:
+        transacao = jogador.DebitaSaldo(jogo.GetPreco())
+        if transacao == True:
             self.AdicionarJogoBiblioteca(jogo, jogador)
 
     def realizarCompra(self, titulo, id):
         if self.buscarJogo(titulo) != None and self.buscarId(id) != None:
             jogador =  self.buscarId(id)
             jogo = self.buscarJogo(titulo)
-            if jogo in jogador.__bibliotecaJogos:
+            if jogo in jogador.getBiblioteca():
                 print("Ja possui o jogo")
             else:
               self.ComprarJogo(jogo, jogador)
