@@ -18,7 +18,8 @@ class Plataforma:
     
     def buscarId(self, id):
         for jogador in self.__jogadoresCadastrados:
-            if jogador.getId == id:
+            if jogador.getId() == id:
+                jogador.exibirPerfil()
                 return jogador
         return None
     
