@@ -30,10 +30,18 @@ Gabriel.AdicionaSaldo(clt)
 #Listar Calogo
 AgostinhoGames.listarCatalogo()
 
-#Gabriel tenta comprar Slime Rancher 3
+#Gabriel tenta comprar Minecraft 2
 AgostinhoGames.realizarCompra("Minecraft 2", 80027092)
 # Gabriel verifica seu saldo
 Gabriel.exibirPerfil()
-#Gabriel tenta comprar Slime Rancher 3 novamente
+#Gabriel tenta comprar Minecraft 2 novamente
 AgostinhoGames.realizarCompra("Minecraft 2", 80027092)
 
+#Davi tenta comprar GTA 66
+AgostinhoGames.realizarCompra("GTA 66", 90025091)
+#Davi Adiciona saldo
+Davi.AdicionaSaldo(1000)
+#Davi Tenta novamente
+AgostinhoGames.realizarCompra("GTA 66", 90025091)
+#Davi verifica seu saldo
+Davi.exibirPerfil()

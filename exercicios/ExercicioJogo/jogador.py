@@ -6,7 +6,10 @@ class Jogador:
         self.__bibliotecaJogos = bibliotecaJogos
 
     def exibirPerfil(self):
-        return print(f"Perfil do jogador {self.__nickName}:\nId do Jogador - {self.__idJogador}\nBiblioteca de Jogos - {self.__bibliotecaJogos}\nSaldo Carteira - {self.__saldoCarteira}")
+        print(f"Perfil do jogador {self.__nickName}:\nId do Jogador - {self.__idJogador}\nBiblioteca de Jogos:")
+        for n in self.__bibliotecaJogos:
+            print(n.getTitulo())
+        print(f"Saldo Carteira - {self.__saldoCarteira}")
 
     def AdicionaSaldo(self, valor):
         self.__saldoCarteira += valor
