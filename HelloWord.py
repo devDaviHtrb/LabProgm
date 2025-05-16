@@ -1,9 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect
+
 
 app = Flask(__name__)
 
-@app.route('/Bemvindo/<nome>')
-def bemVindo(nome):
-    return render_template("BemVindo.html", usuario=nome)
+@app.route('/')
+def home():
+    return render_template("form.html")
+
+@app.route('/enviar', methods=["post"])
+def enviar():
+    nome = request.form["nome"]
+    cidade = request.form["cidade"]
+
+    return render_template("Validation.html", nome = nome, cidade = cidade)
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
