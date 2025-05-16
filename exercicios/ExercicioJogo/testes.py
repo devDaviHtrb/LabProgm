@@ -26,22 +26,27 @@ pap = 400
 clt = 1300
 Davi.AdicionaSaldo(pap)
 Gabriel.AdicionaSaldo(clt)
-
+print("")
 #Listar Calogo
 AgostinhoGames.listarCatalogo()
-
+print("")
 #Gabriel tenta comprar Minecraft 2
 AgostinhoGames.realizarCompra("Minecraft 2", 80027092)
+print("")
 # Gabriel verifica seu saldo
 Gabriel.exibirPerfil()
+print("")
 #Gabriel tenta comprar Minecraft 2 novamente
 AgostinhoGames.realizarCompra("Minecraft 2", 80027092)
-
+print("")
 #Davi tenta comprar GTA 66
 AgostinhoGames.realizarCompra("GTA 66", 90025091)
+print("")
 #Davi Adiciona saldo
 Davi.AdicionaSaldo(1000)
+print("")
 #Davi Tenta novamente
 AgostinhoGames.realizarCompra("GTA 66", 90025091)
+print("")
 #Davi verifica seu saldo
 Davi.exibirPerfil()

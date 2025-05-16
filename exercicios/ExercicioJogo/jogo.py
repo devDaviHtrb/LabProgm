@@ -6,7 +6,7 @@ class Jogo:
         self.__preco = preco
 
     def exibirDetalhes(self):
-        return print(f"\nInformações:\nTítulo - {self.__titulo}\n Gênero - {self.__genero}\nClassificação Etária - {self.__classificacaoEtaria}\nPreço - {self.__preco}\n")
+        return print(f"\nInformações:\nTítulo - {self.__titulo}\nGênero - {self.__genero}\nClassificação Etária - {self.__classificacaoEtaria}\nPreço - {self.__preco}\n")
     def GetPreco(self):
         return self.__preco
     def getTitulo(self):

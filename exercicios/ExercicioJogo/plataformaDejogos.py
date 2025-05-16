@@ -29,21 +29,26 @@ class Plataforma:
     def AdicionarJogoBiblioteca(self, jogo, jogador):
         return jogador.getBiblioteca().append(jogo)
 
-    def ComprarJogo(self, jogo, jogador):
-        transacao = jogador.DebitaSaldo(jogo.GetPreco())
+    def ComprarJogo(self, jogo, comprador, remetente):
+        transacao = comprador.DebitaSaldo(jogo.GetPreco())
         if transacao == True:
-            self.AdicionarJogoBiblioteca(jogo, jogador)
+            self.AdicionarJogoBiblioteca(jogo, remetente)
 
-    def realizarCompra(self, titulo, id):
-        if self.buscarJogo(titulo) != None and self.buscarId(id) != None:
-            jogador =  self.buscarId(id)
+    def realizarCompra(self, titulo, idComprador, idRemetente = None):
+        if idRemetente == None:
+            idRemetente = idComprador
+        if self.buscarJogo(titulo) != None and self.buscarId(idComprador) != None and self.buscarId(idRemetente) != None:
+            comprador =  self.buscarId(idComprador)
+            remetente = self.buscarId(idRemetente)
             jogo = self.buscarJogo(titulo)
-            if jogo in jogador.getBiblioteca():
+            if jogo in remetente.getBiblioteca():
                 print("Ja possui o jogo")
             else:
-              self.ComprarJogo(jogo, jogador)
+              self.ComprarJogo(jogo, comprador, remetente)
         else:
             if self.buscarJogo(titulo) == None:
                 print("Jogo não encontrado")
-            if self.buscarId(id) == None:
-                print("Jogador não encontrado")
+            if self.buscarId(idComprador) == None:
+                print("Comprador não encontrado")
+            if self.buscarId(idRemetente) == None:
+                print("Remetente não encontrado")
