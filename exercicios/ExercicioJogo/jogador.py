@@ -30,3 +30,5 @@ class Jogador:
         return self.__idJogador
     def getBiblioteca(self):
         return self.__bibliotecaJogos
+    def AvaliarJogo(self, jogo, nota):
+        jogo.ReceberAvaliacao(nota)
