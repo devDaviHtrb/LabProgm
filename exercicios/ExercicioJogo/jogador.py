@@ -1,8 +1,11 @@
 class Jogador:
-    def __init__(self, nickName, idJogador, bibliotecaJogos = list(), saldoCarteira = 0):
+    def __init__(self, nickName, idJogador, bibliotecaJogos = None, saldoCarteira = 0):
         self.__nickName = nickName
         self.__idJogador = idJogador
         self.__saldoCarteira = saldoCarteira
+
+        if bibliotecaJogos is None:
+            bibliotecaJogos = []
         self.__bibliotecaJogos = bibliotecaJogos
 
     def exibirPerfil(self):

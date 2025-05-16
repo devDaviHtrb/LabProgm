@@ -27,9 +27,11 @@ clt = 1300
 Davi.AdicionaSaldo(pap)
 Gabriel.AdicionaSaldo(clt)
 print("")
+
 #Listar Calogo
 AgostinhoGames.listarCatalogo()
 print("")
+
 #Gabriel tenta comprar Minecraft 2
 AgostinhoGames.realizarCompra("Minecraft 2", 80027092)
 print("")
@@ -39,6 +41,7 @@ print("")
 #Gabriel tenta comprar Minecraft 2 novamente
 AgostinhoGames.realizarCompra("Minecraft 2", 80027092)
 print("")
+
 #Davi tenta comprar GTA 66
 AgostinhoGames.realizarCompra("GTA 66", 90025091)
 print("")
@@ -50,3 +53,13 @@ AgostinhoGames.realizarCompra("GTA 66", 90025091)
 print("")
 #Davi verifica seu saldo
 Davi.exibirPerfil()
+print("")
+
+#Gabriel compra Slime Rancher 3 de presente para Davi
+AgostinhoGames.realizarCompra("Slime Rancher 3", 80027092, 90025091)
+print("")
+#Verificando se Davi recebeu o jogo
+Davi.exibirPerfil()
+print("")
+#Verificando o saldo de Gabriel
+Gabriel.exibirPerfil()

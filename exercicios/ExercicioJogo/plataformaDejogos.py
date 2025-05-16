@@ -37,6 +37,8 @@ class Plataforma:
     def realizarCompra(self, titulo, idComprador, idRemetente = None):
         if idRemetente == None:
             idRemetente = idComprador
+        else:
+            print("Iniciando processo de compra para presente")
         if self.buscarJogo(titulo) != None and self.buscarId(idComprador) != None and self.buscarId(idRemetente) != None:
             comprador =  self.buscarId(idComprador)
             remetente = self.buscarId(idRemetente)
