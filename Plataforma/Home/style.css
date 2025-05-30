@@ -1,0 +1,119 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+nav{
+   display: flex;
+   flex-direction: row-reverse;
+    position: fixed;
+    width: 10;
+}
+nav ul{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+header{
+    width: 100%;
+    padding: 0px;
+    background-image: url("Fundo.png");
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+header a{
+    position: relative;
+    top: 300px;
+    margin-left: 10px;
+}
+body {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    background-color: rgb(17, 17, 26);
+
+}
+
+.image-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    /* outline: 1px solid red; */
+}
+
+.container {
+    /* outline: 1px solid; */
+    width: 400px;
+    display: flex;
+}
+
+.left-arrow,
+.right-arrow {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    flex: 1;
+    /* outline: 1px solid; */
+    display: grid;
+    place-items: center;
+    font-size: 30px;
+    font-weight: 900;
+    color: rgb(165, 165, 165)
+}
+
+.left-arrow:hover,
+.right-arrow:hover {
+    color: white;
+}
+
+.dots {
+    justify-content: center;
+    width: 100%;
+    /* outline: 1px solid; */
+    display: flex;
+    gap: 1em;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    border: 1px solid rgb(160, 160, 160);
+    border-radius: 50%;
+    transition: .5s ease-in-out;
+}
+
+.dot.selected {
+    background-color: white;
+}
+
+.img-container {
+    display: flex;
+    height: 200px;
+    width: 300px;
+    border: 5px solid white;
+    overflow-x: hidden;
+}
+
+.img-container img {
+    flex: 1 0 100%;
+    object-fit: cover;
+    height: 200px;
+    width: 300px;
+}
+
+.hidden-img {
+    display: none;
+}
