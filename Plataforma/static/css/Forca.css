@@ -1,0 +1,106 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+nav{
+   display: flex;
+   flex-direction: row-reverse;
+    position: fixed;
+    width: 10;
+}
+nav ul{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+header{
+    width: 100%;
+    padding: 0px;
+    background-image: url("../imgs/Fundo.png");;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+header a{
+    position: relative;
+    top: 300px;
+    margin-left: 10px;
+}
+body {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    background-color: rgb(17, 17, 26);
+
+}
+
+main{
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    width: 100%;
+}
+#Corpo{
+    font-size: xx-large;
+    text-align: center;
+    border: white ridge;
+    border-bottom: 4px;
+    border-right: 5px;
+    padding-left: 10px;
+    padding-top: 0px;
+    width: 80px;
+}
+span{
+    padding: 0px;
+    margin: 0px;
+}
+#separador{
+    color: rgba(240, 248, 255, 0);
+}
+
+#Letras{
+    margin-top: 30px;
+    font-size: xx-large;
+}
+
+
+#Letras li{
+    border-bottom: 6px white ridge;
+    margin: 8px;
+    width: 30px;
+    text-align: center;
+}
+form input{
+    height: 40px;
+    border-radius: 20px;
+}
+form input#number{
+    width: 300px;
+    margin-right: 8px;
+    text-align: center;
+
+    border-radius: 15px;
+}
+form input#submit{
+    color: white;
+    background-color: rgb(139, 52, 221);
+    width: 100px;
+}
+form{
+    margin-top: 100px;
+}
