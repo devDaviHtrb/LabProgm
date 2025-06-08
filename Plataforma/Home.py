@@ -1,4 +1,4 @@
-import random
+
 from  flask import *
 import secrets
 from Classes import *
@@ -16,18 +16,23 @@ def Home():
 
 
 def IniciarSessao():
+    session["FimJogo"] = False
     if request.path == "/Quizz":
         session["acertos"] = 0
         session["erros"] = 0
         session["resposta"] = None
-        session["FimJogo"] = False
         session["IndicePergunta"] = 0
     if request.path == "/adivinhar_numero":
         session['numero_secreto_an'] = random.randint(0, 100)
         session['tentativas_an'] = 0
         session['mensagem_an'] = f"Adivinhe um número entre 0 e 100."
-        session['jogo_an_terminado'] = False
         session['ultimo_palpite_an'] = None # Para mostrar o último palpite
+    if request.path== "/batalhaNaval":
+        tabuleiro = Tabuleiro()
+        tabuleiro.adicionaNavio(5)
+        session["tabuleiro"] = tabuleiro.campo
+        session["buttons"] = [f'casa{n+1}' for n in range(0, 110)]
+        
 
 @app.route("/Quizz", methods=["GET", "POST"])
 def Quizz():
@@ -64,7 +69,7 @@ def adivinhar_numero():
         if request.form.get('novo_jogo_an'):
             return redirect(url_for('adivinhar_numero')) # Redireciona para limpar o POST
 
-    if request.method == 'POST' and not session.get('jogo_an_terminado'):
+    if request.method == 'POST' and not session.get('FimJogo'):
         if 'number' in request.form:
             try:
                 palpite = int(request.form['number'])
@@ -81,7 +86,7 @@ def adivinhar_numero():
                     session['mensagem_an'] = f"O número {palpite} é muito alto. Tente um menor!"
                 else: # Acertou!
                     session['mensagem_an'] = f"Parabéns! Você acertou o número {numero_secreto} em {session['tentativas_an']} tentativa(s)!"
-                    session['jogo_an_terminado'] = True
+                    session['FimJogo'] = True
                 
             except ValueError:
                 session['mensagem_an'] = "Entrada inválida. Por favor, insira um número inteiro."
@@ -92,7 +97,7 @@ def adivinhar_numero():
 
     return render_template('AdivinheOnumero.html',
                            mensagem=session.get('mensagem_an'),
-                           jogo_terminado=session.get('jogo_an_terminado', False),
+                           jogo_terminado=session.get('FimJogo', False),
                            tentativas=session.get('tentativas_an', 0),
                            limite_inferior=0,
                            limite_superior=100,
@@ -109,7 +114,45 @@ def Forca():
     return render_template("Forca.html")
 @app.route('/batalhaNaval',methods=["GET", "POST"])
 def batalhaNaval():
-    return render_template("BtNaval.html")
+    if "tabuleiro" not in session or request.form.get("NovoTabuleiro"):
+        IniciarSessao()
+        return render_template("BtNaval.html", tabuleiro=session["tabuleiro"], op=0)
+    if request.method == "POST" and not session.get('FimJogo'):
+        
+        for button in session["buttons"]:
+            if button in request.form:
+                try:
+                    index = int(session["buttons"].index(button))
+                    if int(request.form[button])== 0:
+                       
+                        print(session["tabuleiro"][9])
+                        if index>=100:
+                            session["tabuleiro"][9][session["buttons"].index(button)-100] = "X"
+                            print(session["buttons"].index(button))
+                        else:
+                             session["tabuleiro"][int(str(index)[0])-1][session["buttons"].index(button)-10*int(str(index)[0])] = "X" 
+                    if int(request.form[button])== 1:
+                        
+                        if index>100:
+                            print(session["buttons"].index(button))
+                            session["tabuleiro"][9][session["buttons"].index(button)-100] = "O"
+                        else:
+                            session["tabuleiro"][int(str(index)[0])-1][session["buttons"].index(button)-10*int(str(index)[0])] = "O"
+                        print(session["tabuleiro"])
+                      
+                        uns = 0
+                        for x in session["tabuleiro"]:
+                            uns+= x.count(1)
+                        if uns==0:
+                            session["FimJogo"]=True
+                        
+                    session.modified =True
+                except ValueError:
+                    return render_template("BtNaval.html", tabuleiro=session["tabuleiro"], fimJogo=session["FimJogo"])
+                
+                
+    return render_template("BtNaval.html", tabuleiro=session["tabuleiro"], fimJogo=session["FimJogo"])
+
 
 
 
