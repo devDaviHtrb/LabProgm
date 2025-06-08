@@ -117,3 +117,7 @@ body {
 .hidden-img {
     display: none;
 }
+
+button{
+    border: none;
+}
