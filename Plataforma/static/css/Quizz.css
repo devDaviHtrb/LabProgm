@@ -44,6 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+
     padding: 0px;
     background-color: rgb(17, 17, 26);
 
@@ -57,4 +58,24 @@ button{
 p, h1{
     text-align: center;
     color: white;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+form{
+    display: flex;
+
+    justify-content: center;
+}
+button{
+    margin: 20px;
+}
+div{
+    display:  flex;
+    justify-content: space-between;
+    color: white;
+
+}
+
+h2{
+    margin: 20px;
 }

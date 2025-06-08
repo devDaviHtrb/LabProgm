@@ -31,25 +31,30 @@ def IniciarSessao():
 
 @app.route("/Quizz", methods=["POST", "GET"])
 def Quizz():
-    if "resposta" not in session:
+    if "resposta" not in session or request.form.get("NovoJogo"):
         IniciarSessao()
-    
-    if request.method == "GET" and not session.get('FimJogo'):
-        verdadeiro = request.form["verdadeiro"]
-        if verdadeiro:
+        return redirect(url_for("Quizz")) #direciona para o metodo get
+        
+
+    if request.method == "POST" and not session.get('FimJogo'):
+
+        if "verdadeiro" in request.form:
             session["resposta"] = True
-            print(verdadeiro)
+            print("funciona")
         else:
             session["resposta"] = False
         if session["resposta"]== Db.banco[0].resposta:
             session["acertos"]+=1 
         else:
             session["erros"]=+ 1
-        session["IndicePergunta"] += 1
-       
-        return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"], pergunta=Db.banco[session["IndicePergunta"]].titulo )
+        if  session["IndicePergunta"] + 1  < len(Db.banco):
+            session["IndicePergunta"] += 1
+            return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"], pergunta=Db.banco[session["IndicePergunta"]].titulo )
+        else:
+             session["FimJogo"] = True
+             return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"], pergunta="Parabéns você finalizou o quizz!!!", fim=session['FimJogo'] )
         
-    return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"],  pergunta=Db.banco[session["IndicePergunta"]].titulo)
+    return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"],  pergunta=Db.banco[session["IndicePergunta"]].titulo, fim=session['FimJogo'])
 
 
 
