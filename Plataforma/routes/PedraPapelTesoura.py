@@ -4,8 +4,6 @@ class Game:
     def __init__(self):
         self.Options = ["Paper", "scissor", "rock"]
         self.Continue()
-    
-        
 
     def Play(self, computer):
 

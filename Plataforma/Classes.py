@@ -39,21 +39,21 @@ class Tabuleiro:
                     coluna= random.randint(0,9)
                     orientacao =random.randint(0,1)
                     tamanho = random.randint(0,3)
-            if 10-linha>tamanho and orientacao == 0:#Horizontal
+            if 9-linha>tamanho and orientacao == 0:#Horizontal
                 for n in range(0, tamanho):
                     try:
-                        self.campo[linha][coluna+n-1] = 1
+                        self.campo[linha][coluna+n] = 1
                         self.navioslista.append(Navio(linha, coluna, orientacao, tamanho))
                     except ValueError:
                         navios = navios
                 navios+=1
-            if 10-coluna>tamanho and orientacao == 1:#Horizontal
+            if 9-coluna>tamanho and orientacao == 1:#Horizontal
                 for n in range(0, tamanho):
                     try:
-                        self.campo[linha+n-1][coluna] = 1
+                        self.campo[linha+n][coluna] = 1
                         self.navioslista.append(Navio(linha, coluna, orientacao, tamanho))
                     except ValueError:
                         navio = navio
                 navios+=1
             navio+=1
-                
+                 

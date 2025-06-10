@@ -16,7 +16,7 @@ def adivinhar_numero():
     if 'numero_secreto_an' not in session or request.form.get('novo_jogo_an'):
         IniciarSessao()
         if request.form.get('novo_jogo_an'):
-            return redirect(url_for('adivinhar_numero')) # Redireciona para limpar o POST
+            return redirect(url_for('adivinhOnumero.adivinhar_numero')) # Redireciona para limpar o POST
 
     if request.method == 'POST' and not session.get('FimJogo'):
         if 'number' in request.form:

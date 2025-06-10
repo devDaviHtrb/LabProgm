@@ -9,26 +9,51 @@
 <body>
     <header>
         <a href="/">Home</a>
-        <a href="/">Login</a>
+        <a href="/">Login</a> 
     </header>
     <main>
         <div>
             <h1>Letras Erradas</h1>
+            <p style="font-size: xx-large;">{%for letra in erros%}{{letra}},{%endfor%}</p>
         </div>
        <div id="Jogo">
-           <div id="Corpo">
-                <span>|</span><br><span>O</span><br><span> /</span><span>|</span><span>\</span><br><span>/</span><span id="separador">.</span><span>\</span>
+           <div id="Corpo">{%if vida==3%}{%endif%}{%if vida==2%}{%endif%}{%if vida==1%}{%endif%}{%if vida==0%}{%endif%}
+                <span>{%if 6>vida%}|{%endif%}</span><br><span>{%if 6>vida%}O{%endif%}</span><br><span> {%if 4>vida%}/{%endif%}</span><span>{%if 5>vida%}|{%endif%}</span><span>{%if 3>vida%}\{%endif%}</span><br><span>{%if 2>vida%}/{%endif%}</span><span id="separador">.</span><span>{%if 1>vida%}\{%endif%}</span>
            </div>
            <div id="Letras">
-                <ul><li>T</li><li>e</li><li>s</li><li>t</li><li>e</li></ul>
+            {%if not FimJogo and vida>0%}
+                <ul>
+                        {%if letra!= none%}
+                            {%for letra in letras%}
+                            <li>{%if letra in acertos%}{{letra}}{%endif%}</li>
+                            {%endfor%}
+                        {%endif%}
+                    </ul>
+                
            </div>
-            <form action="|">
-              <input type="text" id="number" placeholder="Escolha uma letra" required>
-              <input type="submit" id="submit" value="Adivinhar">
+            <form action="{{url_for('Forca.Forca')}}" method="POST">
+              <input type="text" id="number" placeholder="Escolha uma letra" required name="letra">
+              <input type="submit" id="submit" value="adivinhar" name="adivinhar">
             </form>
        </div>
+       {%else%}
+            <div>
+                <p>Fim de Jogo.<br></p>
+                {%if 1>vida%}
+                <p>Você perdeu!</p>
+                {%else%}
+                <p>Você Ganhou!!</p>
+                {%endif%}
+            <form action="{{url_for('Forca.Forca')}}" method="POST">
+                <input type="submit" id="submit" value="NovoJogo" name="NovoJogo">
+            </form>
+        </div>
+        {%endif%}
+        </div>
+    </div>
        <div>
         <h1>Letras Certas</h1>
+        <p style="font-size: xx-large;">{%for letra in acertos%}{{letra}},{%endfor%}</p>
        </div>
     </main>
     </body>

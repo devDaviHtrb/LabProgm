@@ -1,5 +1,6 @@
 from flask import *
 from Classes import Tabuleiro
+
 def IniciarSessao():
     session["FimJogo"] = False
     
@@ -15,7 +16,7 @@ batalhanaval= Blueprint("batalha naval", __name__)
 def batalhaNaval():
     if "tabuleiro" not in session or request.form.get("NovoTabuleiro"):
         IniciarSessao()
-        return render_template("BtNaval.html", tabuleiro=session["tabuleiro"], op=0)
+        return redirect("batalhaNaval")
     if request.method == "POST" and not session.get('FimJogo'):
         
         for button in session["buttons"]:

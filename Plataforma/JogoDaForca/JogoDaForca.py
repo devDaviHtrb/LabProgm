@@ -1,4 +1,4 @@
-
+ 
 from Db import BancodePerguntas
 class Jogo:
     def __init__(self, banco):

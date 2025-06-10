@@ -16,7 +16,7 @@ quizz = Blueprint("Quizz", __name__)
 def Quizz():
     if "resposta" not in session or request.form.get("NovoJogo"):
         IniciarSessao()
-        return redirect(url_for("Quizz")) #direciona para o metodo get
+        return redirect(url_for("Quizz.Quizz")) #direciona para o metodo get
         
 
     if request.method == "POST" and not session.get('FimJogo'):
