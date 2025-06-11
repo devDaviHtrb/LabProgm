@@ -5,22 +5,23 @@ Db = BancodePerguntas()
 pergunta = Pergunta("O Flask é um framework javascript", True)
 Db.adicionaPergunta(pergunta)
 Db.adicionaPergunta(pergunta)
+
+quizz = Blueprint("Quizz", __name__)
+@quizz.route("/Quizz", methods=["GET", "POST"])
+
 def IniciarSessao():
     session["FimJogo"] = False
     session["acertos"] = 0
     session["erros"] = 0
     session["resposta"] = None
     session["IndicePergunta"] = 0
-quizz = Blueprint("Quizz", __name__)
-@quizz.route("/Quizz", methods=["GET", "POST"])
+
 def Quizz():
     if "resposta" not in session or request.form.get("NovoJogo"):
         IniciarSessao()
         return redirect(url_for("Quizz.Quizz")) #direciona para o metodo get
         
-
     if request.method == "POST" and not session.get('FimJogo'):
-
         if "verdadeiro" in request.form:
             session["resposta"] = True
             print("funciona")

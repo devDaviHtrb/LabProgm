@@ -8,6 +8,7 @@ from routes.Home import home
 from routes.JogoDaForca import forca
 from routes.PedraPapelTesoura import PedraPapelTesoura
 from routes.Hanoi import Hanoi
+
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
  
