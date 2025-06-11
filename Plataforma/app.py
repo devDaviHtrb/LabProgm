@@ -6,7 +6,7 @@ from routes.AdivinheOnumero import adivinheOnumero
 from routes.Quizz import quizz
 from routes.Home import home
 from routes.JogoDaForca import forca
-
+from routes.PedraPapelTesoura import PedraPapelTesoura
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
  
@@ -17,7 +17,7 @@ app.register_blueprint(batalhanaval)
 app.register_blueprint(adivinheOnumero)
 app.register_blueprint(quizz)
 app.register_blueprint(forca)
-
+app.register_blueprint(PedraPapelTesoura)
         
 
 

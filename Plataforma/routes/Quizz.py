@@ -32,7 +32,7 @@ def Quizz():
             session["erros"]=+ 1
         if  session["IndicePergunta"] + 1  < len(Db.banco):
             session["IndicePergunta"] += 1
-            return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"], pergunta=Db.banco[session["IndicePergunta"]].titulo )
+            return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"], pergunta=Db.banco[session["IndicePergunta"]].titulo, fim=session["FimJogo"] )
         else:
              session["FimJogo"] = True
              return render_template("Quizz.html", erros = session["erros"], acertos=session["acertos"], pergunta="Parabéns você finalizou o quizz!!!", fim=session['FimJogo'] )

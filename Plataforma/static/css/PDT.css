@@ -74,3 +74,14 @@ div{
     display: flex;
     justify-content: center;
 }
+form input#submit{
+    color: white;
+    background-color: rgb(139, 52, 221);
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+}
+form{
+    display: flex;
+    justify-content: center;
+}
