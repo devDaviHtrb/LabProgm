@@ -7,11 +7,10 @@ from routes.Quizz import quizz
 from routes.Home import home
 from routes.JogoDaForca import forca
 from routes.PedraPapelTesoura import PedraPapelTesoura
+
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(16)
  
-
-
 app.register_blueprint(home)
 app.register_blueprint(batalhanaval)
 app.register_blueprint(adivinheOnumero)
@@ -19,18 +18,9 @@ app.register_blueprint(quizz)
 app.register_blueprint(forca)
 app.register_blueprint(PedraPapelTesoura)
         
-
-
-
-@app.route('/PedraPapelTesoura',methods=["GET", "POST"])
-def PedraPapelTesoura():
-    return render_template("PedraPapelTesoura.html")
 @app.route('/Hanoi',methods=["GET", "POST"])
 def Hanoi():
     return render_template("Hanoi.html")
-
-
-
 
 
 
