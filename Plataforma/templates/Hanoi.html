@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/Hanoi.css">
+</head>
+<body>
+    <header>
+        <a href="/">Home</a>
+        <a href="/">Login</a>
+    </header>
+    <main>
+        {%if not FimJogo%}
+       <form id="torres" action="/Hanoi", method="POST">
+        {%for torre in torres%}
+        {%set index = loop.index%}
+        <button name="torre{{index}}" type="submit" value="torre{{index}}" class="torre">
+           <div class="graveto">
+                {%for peca in torre%}
+                    <div id="{{peca}}" class="peca">
+                        .
+                    </div>
+                {%endfor%}
+           </div>
+        {%endfor%}
+      {%endif%}
+       </button>
+       </form>
+      {%if FimJogo%}
+       <form action="/Hanoi", method="POST" id="fim">
+        <h1>Você Ganhou!!!</h1>
+        <button type="submit" value="NovoJogo", name="NovoJogo", id="NovoJogo">Novo Jogo</button>
+
+       </form>
+       {%endif%}
+    </main>
+    </body>
+   <script src="index.js"></script>
+</html>

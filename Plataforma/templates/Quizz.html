@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/Quizz.css">
+</head>
+<body>
+    <header>
+        <a href="/">Home</a>
+        <a href="/">Login</a>
+    </header>
+    <main>
+       <div>
+            <h2>Erros:{{erros}}</h2>
+           <h1>{{pergunta}}</h1>
+           <h2>Acertos:{{acertos}}</h2>
+       </div>
+       {%if not fim%}
+       <form action="Quizz", method="POST">
+        <button type="submit" value="verdadeiro", name="verdadeiro", id="verdadeiro">Verdadeiro</button>
+        <button type="submit" value="Falso" >Falso</button>
+       </form>
+       {%endif%}
+        {%if fim%}
+       <form action="Quizz", method="POST">
+        <button type="submit" value="NovoJogo", name="NovoJogo", id="NovoJogo">Novo Jogo</button>
+
+       </form>
+       {%endif%}
+    </main>
+    </body>
+   <script src="index.js"></script>
+</html>

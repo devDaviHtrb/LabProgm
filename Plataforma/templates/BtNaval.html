@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/Bt.css">
+</head>
+<body>
+    <header>
+        <a href="/">Home</a>
+        <a href="/">Login</a>
+    </header>
+    <main>
+
+        {%if fimJogo%}<h1>Você Ganhou</h1>{%endif%}
+        {%if fimJogo%}
+       <form action="/batalhaNaval", method="POST">
+        <button type="submit" value="NovoTabuleiro", name="NovoTabuleiro", id="NovoTabuleiro">Novo Jogo</button>
+
+       </form>
+       {%endif%}
+       <form action="/batalhaNaval" method="POST">
+           <table>
+            <tr>
+                <td class="identificador"></td>
+                <td class="identificador">a</td>
+                <td class="identificador">b</td>
+                <td class="identificador">c</td>
+                <td class="identificador">d</td>
+                <td class="identificador">e</td>
+                <td class="identificador">f</td>
+                <td class="identificador">g</td>
+                <td class="identificador">h</td>
+                <td class="identificador">i</td>
+                <td class="identificador">j</td>
+            </tr>
+            {% for linha in tabuleiro%}
+            <tr>
+                    <td class="identificador">{{loop.index}}</td>
+              
+                {%set linhaIndex = loop.index%}
+            {%for coluna in linha%}
+                {%if linhaIndex+1==1 %}
+               
+                    <td id="casa{{loop.index+1}}" class="casa"><button type="submit" name="casa{{loop.index+1}}" value="{{coluna}}">{%if coluna=="X" or coluna=="O"%}{{coluna}}{%endif%}</button></td>
+                
+                {%endif%}
+                {%if linhaIndex+1==2 %}
+               
+                    <td id="casa{{loop.index+10}}" class="casa"><button name="casa{{loop.index+10}}"value="{{coluna}}" type="submit">{%if coluna=="X" or coluna=="O"%}{{coluna}}{%endif%}</button></td>
+                
+                {%endif%}
+                {%if linhaIndex+1>2 %}
+               
+                <td id="casa{{loop.index+10*(linhaIndex)}}" class="casa"><button name="casa{{loop.index+10*(linhaIndex)}}"value="{{coluna}}" type="submit">{%if coluna=="X" or coluna=="O"%}{{coluna}}{%endif%}</button></td>
+               
+                {%endif%}
+            {%endfor%}
+            </tr>
+            {%endfor%}
+           </table>
+       </form>
+    </main>
+    </body>
+   <script src="index.js"></script>
+</html>
