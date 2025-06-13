@@ -56,4 +56,11 @@ class Tabuleiro:
                         navio = navio
                 navios+=1
             navio+=1
-                 
+class Peca:
+    def __init__(self, tamanho, cor):
+        self.tamanho = tamanho
+        self.cor = cor
+
+class torre:
+    def __init__(self, torre):
+        self.torre = torre

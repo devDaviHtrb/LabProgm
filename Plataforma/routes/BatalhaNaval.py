@@ -3,12 +3,10 @@ from Classes import Tabuleiro
 
 def IniciarSessao():
     session["FimJogo"] = False
-    
-    if request.path== "/batalhaNaval":
-        tabuleiro = Tabuleiro()
-        tabuleiro.adicionaNavio(5)
-        session["tabuleiro"] = tabuleiro.campo
-        session["buttons"] = [f'casa{n+1}' for n in range(0, 110)]
+    tabuleiro = Tabuleiro()
+    tabuleiro.adicionaNavio(5)
+    session["tabuleiro"] = tabuleiro.campo
+    session["buttons"] = [f'casa{n+1}' for n in range(0, 110)]
 
 
 batalhanaval= Blueprint("batalha naval", __name__)

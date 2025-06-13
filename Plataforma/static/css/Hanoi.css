@@ -50,14 +50,71 @@ body {
 
 }
 .graveto{
-    width: 100px;
+    width: 300px;
     height: 400px;
     background-image: url("../imgs/graveto.webp");
-    background-size: cover;
+    background-size:25%;
+    background-repeat: no-repeat;
+    background-position: center;
     margin: 50px;
     margin-right: 160px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
 #torres{
     display: flex;
+    justify-content: space-between;
+}
+
+.torre{
+    
+    height: 400px;
+    background-color: rgba(95, 119, 140, 0);
+}
+
+.peca{
+    height: 60px;
+}
+#peca1{
+    width: 300px;
+    background-color: red;
+}
+#peca2{
+    width: 280px;
+    background-color: blue;
+}
+#peca3{
+    width: 260px;
+    background-color: green;
+}
+#peca4{
+    width: 240px;
+    background-color: yellow;
+}
+#peca5{
+    width: 220px;
+    background-color: purple;
+}
+#NovoJogo{
+        color: white;
+    background-color: rgb(139, 52, 221);
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+}
+form#fim{
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+#fim button{
+    margin-top: 40px;
+}
+
+h1{
+    text-align: center;
 }
