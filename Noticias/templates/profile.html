@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário | Portal de Notícias</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../static/profile{%if mode==1%}Escuro{%endif%}.css">
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    
+    <div class="w-full max-w-md">
+        <div class="profile-card rounded-xl shadow-lg overflow-hidden p-6" style="margin-bottom: 10px;">
+            <ul>
+                <li style="margin-left: 23px;"><a href="/home">Home</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="profile-card rounded-xl shadow-lg overflow-hidden p-6">
+            <nav>
+       
+    </nav>
+            <div class="flex justify-between items-start mb-6">
+                <form action="/mode" method="POST">
+                    <button id="toggleMode" class="px-3 py-1 rounded-full text-sm font-medium transition-colors">
+                        {%if mode==1%}
+                            Modo claro
+                        {%else%}
+                        Modo escuro
+                        {%endif%}
+                    </button>
+                </form>
+                <div class="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100 px-2 py-1 rounded-full">
+                    Visitas <span id="visitCount">{{visitas}}</span>
+                </div>
+            </div>
+            
+            <div class="flex flex-col items-center mb-6">
+                <div class="relative mb-4">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9b01cb18-cd41-4a2d-b187-494605c00f7b.png" alt="Foto de perfil do usuário mostrando uma pessoa sorrindo com fundo desfocado" class="rounded-full w-24 h-24 object-cover border-4 border-white dark:border-gray-700">
+                    <div class="absolute bottom-0 right-0 bg-green-500 w-4 h-4 rounded-full border-2 border-white dark:border-gray-700"></div>
+                </div>
+                <h2 class="text-xl font-bold">Bem-Vindo {{username}}</h2>
+                {%if username == "admin"%}<button>Clique aqui para entrar no modo desenvolvedor</button>{%else%}<button>Compartilhar site</button>{%endif%}
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
