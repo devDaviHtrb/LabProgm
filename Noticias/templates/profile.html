@@ -38,6 +38,7 @@
                     <div class="absolute bottom-0 right-0 bg-green-500 w-4 h-4 rounded-full border-2 border-white dark:border-gray-700"></div>
                 </div>
                 <h2 class="text-xl font-bold">Bem-Vindo {{username}}</h2>
+                {%if username == "admin"%}<button>Clique aqui para entrar no modo desenvolvedor</button>{%else%}<button>Compartilhar site</button>{%endif%}
             </div>
                 </div>
             </div>
