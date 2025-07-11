@@ -11,7 +11,7 @@ def Home():
     mode = request.cookies.get("mode")
     print(filtro)
     if not username:
-        return redirect(url_for("login"))
+        return redirect(url_for("login.Login"))
     if not mode:
         mode = "0"
     return render_template("Home.html", mode=int(mode), username=username, filtro=filtro, noticias=noticias)
