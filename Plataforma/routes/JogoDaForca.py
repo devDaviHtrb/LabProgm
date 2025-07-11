@@ -4,11 +4,11 @@ import random
 forca = Blueprint("Forca", __name__)
 palavra1 = "casa"
 palavra2 = "casebre"
-Db = BancodePerguntas()
-Db.adicionaPergunta(palavra1)
-Db.adicionaPergunta(palavra2)
+
 def IniciaSessao():
-    
+    Db = BancodePerguntas()
+    Db.adicionaPergunta(palavra1)
+    Db.adicionaPergunta(palavra2)
     session["FimJogo"] = False
 
     session["Palavra"] = Db.banco[random.randint(0, len(Db.banco)-1)]
