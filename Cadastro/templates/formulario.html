@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cadastro de Usuário</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Formulário de Cadastro</h2>
+      <form
+        id="registrationForm"
+        method="post"
+        action="/registrarUsuario"
+        novalidate
+      >
+       
+                    <div class="flash-message flash-{{ category }}" id="status">
+                        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                        {{ message }}
+                        {% endfor %}
+            {% endif %}
+        {% endwith %}
+                    </div>
+                
+      <input type="text" name="username" id="username" placeholder="username" required>
+      <input type="email" name="email" id="email" placeholder="email" required>
+      <input type="password" name="password" id="password" placeholder="password" required>
+        <button  id="submitButton">Cadastrar</button>
+      </form>
+    </div>
+    <script src="static/js/script.js"></script>
+  </body>
+</html>
