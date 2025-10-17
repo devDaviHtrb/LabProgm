@@ -8,6 +8,8 @@ app.register_blueprint(produtosPaginados)
 app.register_blueprint(buscarProduto)
 app.register_blueprint(detalhesProdutos)
 app.register_blueprint(insertProduto)
+app.register_blueprint(deleteProduto)
+app.register_blueprint(insertProdutopagina)
 
 register_handlers(app)
 

@@ -3,3 +3,5 @@ from routes.detalheProduto import detalhesProdutos
 from routes.produtosPaginados import produtosPaginados
 from routes.produtos import produtos
 from routes.insertProduto import insertProduto
+from routes.insertProdutoPagina import insertProdutopagina
+from routes.deleteProduto import deleteProduto
