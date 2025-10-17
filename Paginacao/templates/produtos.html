@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="pesquisa" id="pesquisa" placeholder="pesquisa">
+    <button id="btn_pesquisa">Pesquisar</button>
+    
+    <ul id="resultado">
+       
+    </ul>
+    <h1>Nossos produtos</h1>
+    <button id="prev-btn">Anterior</button>
+    <button id="next-btn">Próximo</button>
+    <p id="page-info"></p>
+    <ul id="produtos">
+        {%for produto in produtos%}
+        <li>
+            <a href="{{url_for('detalhesProdutos.detalhe', produto_id=produto.id)}}">
+                {{produto.nome}}
+            </a> R${{produto.preco}}
+        </li>
+        {%endfor%}
+    </ul>
+
+        </li>
+    </ul>
+
+    <script type="module" src="../static/js/main/index.js"></script>
+</html>
